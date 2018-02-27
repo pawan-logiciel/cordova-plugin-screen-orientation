@@ -74,7 +74,10 @@
                 if (_lastOrientation != UIInterfaceOrientationUnknown) {
                     [[UIDevice currentDevice] setValue:[NSNumber numberWithInt:_lastOrientation] forKey:@"orientation"];
                     ((void (*)(CDVViewController*, SEL, NSMutableArray*))objc_msgSend)(vc,selector,result);
-                    [UINavigationController attemptRotationToDeviceOrientation];
+                    
+                    //  Commented By Mayank Kumar on 27/02/2018.
+                    //  Commented Because It retains the orientation of the screens visited.
+                    //  [UINavigationController attemptRotationToDeviceOrientation];
                 }
             }
             if (value != nil) {
