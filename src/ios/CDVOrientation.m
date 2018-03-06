@@ -76,8 +76,10 @@
                     ((void (*)(CDVViewController*, SEL, NSMutableArray*))objc_msgSend)(vc,selector,result);
                     
                     //  Commented By Mayank Kumar on 27/02/2018.
-                    //  Commented Because It retains the orientation of the screens visited.
-                    //  [UINavigationController attemptRotationToDeviceOrientation];
+                    // Retains the last visited orientation for iPAD only
+                    if ( UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad ) {
+                        [UINavigationController attemptRotationToDeviceOrientation];
+                    }
                 }
             }
             if (value != nil) {
